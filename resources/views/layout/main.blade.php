@@ -44,13 +44,13 @@
     <a class="nav-link text-white" href="/trs"><i class="fas fa-money-bill-wave mr-2"></i>Transaksi</a><hr class="bg-secondary">
   </li>
    <li class="nav-item">
-    <a class="nav-link text-white" href=""><i class="fas fa-paperclip mr-2"></i>Paket Londry</a><hr class="bg-secondary">
+    <a class="nav-link text-white" href="#"><i class="fas fa-paperclip mr-2"></i>Paket Londry</a><hr class="bg-secondary">
   </li>
    <li class="nav-item">
-    <a class="nav-link text-white" href=""><i class="fas fa-users mr-2"></i>Customer</a><hr class="bg-secondary">
+    <a class="nav-link text-white" href="#"><i class="fas fa-users mr-2"></i>Customer</a><hr class="bg-secondary">
   </li>
    <li class="nav-item">
-    <a class="nav-link text-white" href=""><i class="fas fa-book mr-2"></i>Tipe Pembayaran</a>
+    <a class="nav-link text-white" href="#"><i class="fas fa-book mr-2"></i>Tipe Pembayaran</a>
   </li>
 </ul>
 
