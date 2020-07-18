@@ -17,11 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/ta', function () {
-    return view('about');
-});
-
+//users-crud
+Route::get('/users', 'UsersController@index');
+Route::get('/users/hapus/{id}', 'UsersController@hapus');
 
 Route::get('/trs', function () {
     return view('transaksi');
