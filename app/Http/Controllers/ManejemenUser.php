@@ -18,8 +18,8 @@ class ManejemenUser extends Controller
         return view('about',['manejemen' => $users]);
 
 
-         $users = DB::table('transaksi')-> get();
-        return view('transaksi',['transaksi' => $users]);
+        //  $users = DB::table('transaksi')-> get();
+        // return view('transaksi',['transaksi' => $users]);
 
     }
 
@@ -86,6 +86,8 @@ class ManejemenUser extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('manejemen')->where('id', $id)->delete();
+
+        return redirect('ta');
     }
 }

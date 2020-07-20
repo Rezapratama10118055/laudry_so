@@ -14,7 +14,7 @@ class TransaksiUser extends Controller
      */
     public function index()
     {
-         $users = DB::table('transaksi')-> get();
+        $users = DB::table('transaksi')-> get();
         return view('transaksi',['transaksi' => $users]);
 
     }
@@ -82,6 +82,8 @@ class TransaksiUser extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('transaksi')->where('id', $id)->delete();
+
+        return redirect('trs');
     }
 }

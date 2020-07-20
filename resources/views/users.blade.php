@@ -28,9 +28,11 @@
       <td>{{$u->jabatan}}</td>
       <td>{{$u->status_aktif}}</td>
     
-        <td><a href="" class="btn btn-primary">Detail</a></td>
+        <td><a href="#" class="btn btn-primary">Detail</a></td>
           <td><a href="users/edit"><i class="fas fa-edit bg-warning p-2 text-white rounded "></i></a></td>
-         <td><a href="users/hapus/{{$u->id_user}}"><i class="fas fa-trash bg-danger p-2 text-white rounded"></i></a></td>
+         <td><a href="users/hapus/{{$u->id_user}}"><i class="fas fa-trash bg-danger p-2 text-white rounded" data-toggle="modal" data-target="#seleteModal"></i></a></td>
+         <td><button class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">Test</button></td>
+</button></td>
 
     </tr>
 @endforeach
@@ -49,5 +51,26 @@
 </div>
 </div>
 </div>
+
+<div id="deleteModal" class="modal fade">
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header flex-column">
+        <div class="icon-box">
+          <i class="material-icons">&#xE5CD;</i>
+        </div>            
+        <h4 class="modal-title w-100">Are you sure?</h4>  
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Do you really want to delete these records? This process cannot be undone.</p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>     
 
 @endsection

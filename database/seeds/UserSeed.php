@@ -11,19 +11,19 @@ class UserSeed extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-        	'nama_user' => 'reza',
+        DB::table('manejemen')->insert([
+        	'nama' => 'reza',
         	'jabatan' => 'bos besar',
-        	'status_aktif' => 'aktif']);
+        	'status' => 'aktif']);
 
-        DB::table('users')->insert([
-        	'nama_user' => 'odol',
+        DB::table('manejemen')->insert([
+        	'nama' => 'odol',
         	'jabatan' => 'tukang kemas',
-        	'status_aktif' => 'aktif']);
+        	'status' => 'aktif']);
 
-        DB::table('users')->insert([
-        	'nama_user' => 'tupai',
+        DB::table('manejemen')->insert([
+        	'nama' => 'tupai',
         	'jabatan' => 'tukang cuci',
-        	'status_aktif' => 'libur']);
+        	'status' => 'libur']);
     }
 }

@@ -12,16 +12,16 @@ class FakerSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create('id_ID');
+        // $faker = Faker::create('id_ID');
  
-        for($i = 1; $i <= 50; $i++){
+        // for($i = 1; $i <= 50; $i++){
  
-              // insert data ke table pegawai menggunakan Faker
-            DB::table('users')->insert([
-                'nama_user' => $faker->name,
-                'jabatan' => $faker->jobTitle,
-                'status_aktif' => 'aktif'
-            ]);
-        }
+        //       // insert data ke table pegawai menggunakan Faker
+        //     DB::table('users')->insert([
+        //         'nama_user' => $faker->name,
+        //         'jabatan' => $faker->jobTitle,
+        //         'status_aktif' => 'aktif'
+        //     ]);
+        // }
     }
 }
