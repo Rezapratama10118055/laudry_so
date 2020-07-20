@@ -16,7 +16,7 @@ class Transaksi extends Migration
         Schema::create('transaksi', function (Blueprint $table){
             $table->id();
             $table->date('TglTransaksi');
-            $table->string('Costumer');
+            $table->string('Customer');
             $table->string('Paket');
             $table->string('Pembayaran');
             $table->string('StatusOrderan');
