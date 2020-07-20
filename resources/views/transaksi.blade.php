@@ -24,6 +24,7 @@
   <tbody>
 
     @foreach($transaksi as $User)
+
     <tr>
       <th scope="row">{{ $loop->iteration }}</th>
       <td>{{ $User->TglTransaksi }}</td>

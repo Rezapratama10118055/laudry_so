@@ -21,3 +21,11 @@ route::get('/ta','ManejemenUser@index');
 route::get('/trs','TransaksiUser@index');
 route::get('/pem','Pembayaran@index');
 
+
+//users-crud
+Route::get('/users', 'UsersController@index');
+Route::get('/users/hapus/{id}', 'UsersController@hapus');
+
+// Route::get('/trs', function () {
+//     return view('users');
+// });

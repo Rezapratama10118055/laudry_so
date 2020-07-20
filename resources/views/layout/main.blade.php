@@ -47,7 +47,7 @@
     <a class="nav-link text-white" href="{{url('/paket')}}"><i class="fas fa-paperclip mr-2"></i>Paket Londry</a><hr class="bg-secondary">
   </li>
    <li class="nav-item">
-    <a class="nav-link text-white" href="{{url('/cos')}}"><i class="fas fa-users mr-2"></i>Customer</a><hr class="bg-secondary">
+    <a class="nav-link text-white" href="{{url('/com')}}"><i class="fas fa-users mr-2"></i>Customer</a><hr class="bg-secondary">
   </li>
    <li class="nav-item">
     <a class="nav-link text-white" href="{{url('/pem')}}"><i class="fas fa-book mr-2"></i>Tipe Pembayaran</a>
