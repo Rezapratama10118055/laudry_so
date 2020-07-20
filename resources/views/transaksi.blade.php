@@ -12,18 +12,26 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">No</th>
-      <th scope="col">Nama</th>
-      <th scope="col">Jabatan</th>
-      <th scope="col">Status</th>
+      <th scope="col">Tgl.Transaksi</th>
+      <th scope="col">Costomer</th>
+      <th scope="col">Paket</th>
+      <th scope="col">Pembayaran</th>
+      <th scope="col">Status Orderan</th>
+      <th scope="col">Total</th>
       <th colspan="3" scope="col">AKSI</th>
     </tr>
   </thead>
   <tbody>
+
+    @foreach($transaksi as $User)
     <tr>
-      <th scope="row">1</th>
-      <td>reza</td>
-      <td>bos besar</td>
-      <td>aktif</td>
+      <th scope="row">{{ $loop->iteration }}</th>
+      <td>{{ $User->TglTransaksi }}</td>
+      <td>{{ $User->Costomer }}</td>
+      <td>{{ $User->Paket }}</td>
+      <td>{{ $User->Pembayaran }}</td>
+      <td>{{ $User->StatusOrderan}}</td>
+      <td>Rp.{{ $User->Total }}</td>
     
         <td><a href="" class="btn btn-primary">Detail</td>
           <td><i class="fas fa-edit bg-warning p-2 text-white rounded "></i></td>
@@ -31,30 +39,9 @@
 
     </tr>
    <hr>
-<tr>
-      <th scope="row">2</th>
-      <td>odol</td>
-      <td>tukang kemas</td>
-      <td>aktif</td>
-     
-        <td><a href="" class="btn btn-primary">Detail</td>
-          <td><i class="fas fa-edit bg-warning p-2 text-white rounded "></i></td>
-         <td> <i class="fas fa-trash bg-danger p-2 text-white rounded"></i></td>
+    @endforeach
 
-    </tr>
 
-<tr>
-      <th scope="row">3</th>
-      <td>tupai</td>
-      <td>tukang cuci</td>
-      <td>libur</td>
-    
-        <td><a href="" class="btn btn-primary">Detail</td>
-          <td><i class="fas fa-edit bg-warning p-2 text-white rounded ">
-          </i></td>
-         <td> <i class="fas fa-trash bg-danger p-2 text-white rounded"></i></td>
-
-    </tr>
 
   </tbody>
 </table>

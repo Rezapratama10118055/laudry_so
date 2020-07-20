@@ -13,16 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+route::get('/','PagesController@login');
 
-Route::get('/ta', function () {
-    return view('about');
-});
+route::get('/ds','PagesController@home');
+route::get('/ta','ManejemenUser@index');
+route::get('/trs','TransaksiUser@index');
+route::get('/pem','Pembayaran@index');
 
-
-Route::get('/trs', function () {
-    return view('transaksi');
-});

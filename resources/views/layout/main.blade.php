@@ -24,9 +24,9 @@
     </form>
     <div class="icon ml-4">
       <h5>
-        <i class="fas fa-envelope mr-3 " data-toggle= "tooltip" title="Surat Masuk"></i>
+     <a href="{{url('a')}}" ><i class="fas fa-envelope mr-3 text-dark " data-toggle= "tooltip" title="Surat Masuk"></i></a>
         <i class="fas fa-bell mr-3" data-toggle= "tooltip" title="Notifikasi"></i>
-        <i class="fas fa-sign-in-alt mr-3" data-toggle= "tooltip" title="Sing Out"></i>
+          <a href="{{url('/')}}"><i class="fas fa-sign-in-alt mr-3 text-dark" data-toggle= "tooltip" title="Sing Out"></i></a>
       </h5>
   </div>
 </nav>
@@ -35,22 +35,22 @@
   <div class="col-md-2 bg-dark mt-2 pr-3 pt-4">
     <ul class="nav flex-column ml-3 mb-5">
   <li class="nav-item">
-    <a class="nav-link active text-white" href="/"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a><hr class="bg-secondary">
+    <a class="nav-link active text-white" href="{{url('/ds')}}"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a><hr class="bg-secondary">
   </li>
   <li class="nav-item">
-    <a class="nav-link text-white" href="/ta"><i class="fas fa-user mr-2"></i>Menejemen User</a><hr class="bg-secondary">
+    <a class="nav-link text-white" href="{{url('/ta')}}"><i class="fas fa-user mr-2"></i>Menejemen User</a><hr class="bg-secondary">
   </li>
   <li class="nav-item">
-    <a class="nav-link text-white" href="/trs"><i class="fas fa-money-bill-wave mr-2"></i>Transaksi</a><hr class="bg-secondary">
+    <a class="nav-link text-white" href="{{url('/trs')}}"><i class="fas fa-money-bill-wave mr-2"></i>Transaksi</a><hr class="bg-secondary">
   </li>
    <li class="nav-item">
-    <a class="nav-link text-white" href=""><i class="fas fa-paperclip mr-2"></i>Paket Londry</a><hr class="bg-secondary">
+    <a class="nav-link text-white" href="{{url('/paket')}}"><i class="fas fa-paperclip mr-2"></i>Paket Londry</a><hr class="bg-secondary">
   </li>
    <li class="nav-item">
-    <a class="nav-link text-white" href=""><i class="fas fa-users mr-2"></i>Customer</a><hr class="bg-secondary">
+    <a class="nav-link text-white" href="{{url('/cos')}}"><i class="fas fa-users mr-2"></i>Customer</a><hr class="bg-secondary">
   </li>
    <li class="nav-item">
-    <a class="nav-link text-white" href=""><i class="fas fa-book mr-2"></i>Tipe Pembayaran</a>
+    <a class="nav-link text-white" href="{{url('/pem')}}"><i class="fas fa-book mr-2"></i>Tipe Pembayaran</a>
   </li>
 </ul>
 
