@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-route::get('/','PagesController@login');
-
-route::get('/ds','PagesController@home');
+route::get('/','PagesController@login')->name('login');
+Auth::routes();
+route::get('/home','PagesController@home')->name('home');
 route::get('/ta','ManejemenUser@index');
 
 //hapus user
@@ -39,6 +39,6 @@ Route::get('/users/hapus/{id}', 'UsersController@hapus');
 //     return view('users');
 // });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+

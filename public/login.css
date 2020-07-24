@@ -13,9 +13,9 @@ button {
 
 body {
 
-background:url(c.jpg);
-background-position: 40%;
-background-size: 500; 
+background:url(asset/img/login.jpg);
+background-position: center;
+background-size: cover;
 background-repeat: no-repeat;
 
 }

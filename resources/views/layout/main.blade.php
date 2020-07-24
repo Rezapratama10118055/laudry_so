@@ -24,9 +24,13 @@
     </form>
     <div class="icon ml-4">
       <h5>
-     <a href="{{url('/a')}}" ><i class="fas fa-envelope mr-3 text-dark " data-toggle= "tooltip" title="Surat Masuk"></i></a>
-       <a href="{{url('/ab')}}"> <i class="fas fa-bell mr-3 text-dark" data-toggle= "tooltip" title="Notifikasi"></i></a>
-          <a href="{{url('/')}}"><i class="fas fa-sign-in-alt mr-3 text-dark" data-toggle= "tooltip" title="Sing Out"></i></a>
+        <a href="{{url('/a')}}" ><i class="fas fa-envelope mr-3 text-dark " data-toggle= "tooltip" title="Surat Masuk"></i></a>
+        <a href="{{url('/ab')}}"> <i class="fas fa-bell mr-3 text-dark" data-toggle= "tooltip" title="Notifikasi"></i></a>
+        <!-- <a href="{{url('/')}}"><i class="fas fa-sign-in-alt mr-3 text-dark" data-toggle= "tooltip" title="Sing Out"></i></a> -->
+        <a  href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fas fa-bell mr-3 text-dark "></i>
+                 
+                </a>
       </h5>
   </div>
 </nav>
@@ -58,7 +62,29 @@
 @yield('container')
 
 </div>
-
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
