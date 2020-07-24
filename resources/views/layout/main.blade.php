@@ -24,8 +24,8 @@
     </form>
     <div class="icon ml-4">
       <h5>
-     <a href="{{url('a')}}" ><i class="fas fa-envelope mr-3 text-dark " data-toggle= "tooltip" title="Surat Masuk"></i></a>
-        <i class="fas fa-bell mr-3" data-toggle= "tooltip" title="Notifikasi"></i>
+     <a href="{{url('/a')}}" ><i class="fas fa-envelope mr-3 text-dark " data-toggle= "tooltip" title="Surat Masuk"></i></a>
+       <a href="{{url('/ab')}}"> <i class="fas fa-bell mr-3 text-dark" data-toggle= "tooltip" title="Notifikasi"></i></a>
           <a href="{{url('/')}}"><i class="fas fa-sign-in-alt mr-3 text-dark" data-toggle= "tooltip" title="Sing Out"></i></a>
       </h5>
   </div>
@@ -44,13 +44,13 @@
     <a class="nav-link text-white" href="{{url('/trs')}}"><i class="fas fa-money-bill-wave mr-2"></i>Transaksi</a><hr class="bg-secondary">
   </li>
    <li class="nav-item">
-    <a class="nav-link text-white" href="{{url('/paket')}}"><i class="fas fa-paperclip mr-2"></i>Paket Londry</a><hr class="bg-secondary">
+    <a class="nav-link text-white" href="{{url('/pak')}}"><i class="fas fa-paperclip mr-2"></i>Paket Londry</a><hr class="bg-secondary">
   </li>
    <li class="nav-item">
-    <a class="nav-link text-white" href="{{url('/com')}}"><i class="fas fa-users mr-2"></i>Customer</a><hr class="bg-secondary">
+    <a class="nav-link text-white" href="{{url('/pem')}}"><i class="fas fa-users mr-2"></i>Tipe Pembayaran</a><hr class="bg-secondary">
   </li>
    <li class="nav-item">
-    <a class="nav-link text-white" href="{{url('/pem')}}"><i class="fas fa-book mr-2"></i>Tipe Pembayaran</a>
+    <a class="nav-link text-white" href="{{url('/lap')}}"><i class="fas fa-book mr-2"></i>Laporan</a>
   </li>
 </ul>
 

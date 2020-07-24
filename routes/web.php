@@ -28,6 +28,8 @@ Route::get('/trs/hapus/{id}', 'TransaksiUser@destroy');
 route::get('/trs','TransaksiUser@index');
 route::get('/pem','Pembayaran@index');
 
+Route::get('/pak','Paket@index');
+
 
 //users-crud
 Route::get('/users', 'UsersController@index');
