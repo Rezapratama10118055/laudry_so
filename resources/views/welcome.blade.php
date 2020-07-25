@@ -5,7 +5,7 @@
 
 @section('container')
   <div style="margin-left: 300px; width: calc(100% - 300px);">
-  <div class="col-md-10 p-5 pt-2">
+  <div class="col-md-12 p-5 pt-2">
     <h3><i class="fas fa-tachometer-alt mr-2"></i>DASHBOARD</h3><hr>
 <div class="row text-white"> 
   <div class="card bg-info ml-3" style="width: 18rem;">
