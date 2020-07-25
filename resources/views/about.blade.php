@@ -29,23 +29,23 @@
       <th scope="col">No</th>
       <th scope="col">Nama</th>
       <th scope="col">Jabatan</th>
-      <th scope="col">Status</th>
+      <th scope="col">Email</th>
       <th colspan="3" scope="col">AKSI</th>
     </tr>
   </thead>
   <tbody>
 
-@foreach($manejemen as $User)
+@foreach($user as $row => $val)
 
     <tr>
-      <th scope="row">{{ $loop->iteration }}</th>
-      <td>{{ $User->Nama }}</td>
-      <td>{{ $User->Jabatan }}</td>
-      <td>{{ $User->Status }}</td>
+      <th scope="row">{{ $row+1 }}</th>
+      <td>{{ $val->name }}</td>
+      <td>{{ $val->role }}</td>
+      <td>{{ $val->email }}</td>
     
         <td><a href="" class="btn btn-primary">Detail</td>
           <td><i class="fas fa-edit bg-warning p-2 text-white rounded "></i></td>
-         <td><a href="javascript:;" data-toggle="modal" onclick="deleteData({{$User->id}})" data-target="#DeleteModal" class="fas fa-trash bg-danger p-2 text-white rounded"></td>
+         <td><a href="javascript:;" data-toggle="modal" onclick="deleteData({{$val->id}})" data-target="#DeleteModal" class="fas fa-trash bg-danger p-2 text-white rounded"></td>
 
     </tr>
 

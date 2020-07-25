@@ -16,6 +16,16 @@ class SeedUsers extends Seeder
     		'name' => 'Admin',
     		'email' => 'admin@gmail.com', 
     		'role' => 'admin', 
-    		'password' => Hash::make('kepoajg')]); 
+    		'password' => Hash::make('kepoajg')]
+            ); 
+
+        DB::table('users')->insert([
+            'name' => 'User',
+            'email' => 'user@gmail.com', 
+            'role' => 'kasir', 
+            'password' => Hash::make('naonaisia')]
+            ); 
+
+        
     }
 }

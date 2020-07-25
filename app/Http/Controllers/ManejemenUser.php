@@ -20,8 +20,9 @@ class ManejemenUser extends Controller
     
     public function index()
     {
-       $users = DB::table('manejemen')-> get();
-        return view('about',['manejemen' => $users]);
+       $data['user'] = DB::table('users')->where('role', '!=', 'admin')-> get();
+        //dd($data['user']);
+       return view('about',$data);
 
 
         //  $users = DB::table('transaksi')-> get();

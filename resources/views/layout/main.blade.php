@@ -8,6 +8,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
        <link href="{{{ asset('fontawesome/css/all.min.css') }}}" rel="stylesheet">
+       <style type="text/css">
+         html{
+          width: 100%;
+          height: 100%;
+         }
+         body{
+          width: 100%;
+          height: 100%;
+         }
+       </style>
     
 
 
@@ -39,7 +49,7 @@
   <div class="col-md-2 bg-dark mt-2 pr-3 pt-4">
     <ul class="nav flex-column ml-3 mb-5">
   <li class="nav-item">
-    <a class="nav-link active text-white" href="{{url('/ds')}}"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a><hr class="bg-secondary">
+    <a class="nav-link active text-white" href="{{url('/home')}}"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a><hr class="bg-secondary">
   </li>
   <li class="nav-item">
     <a class="nav-link text-white" href="{{url('/ta')}}"><i class="fas fa-user mr-2"></i>Menejemen User</a><hr class="bg-secondary">
