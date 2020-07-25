@@ -8,11 +8,10 @@ use App\Http\Controllers\Controller;
 class PagesController extends Controller
 {
 
-	public function login()
-	{
-
-		return view('auth/login');
-	}
+	public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function home()
     {

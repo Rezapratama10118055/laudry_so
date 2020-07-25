@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-route::get('/','PagesController@login')->name('login');
+
+ Route::get('/', function () {
+     return view('auth/login');
+ });
 Auth::routes();
 route::get('/home','PagesController@home')->name('home');
 route::get('/ta','ManejemenUser@index');

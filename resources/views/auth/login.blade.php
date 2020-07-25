@@ -20,7 +20,7 @@
       <h4 class="text-center text-danger">FORM LOGIN</h4>
       <hr>
 
-      <form method="route" action="{{ route('login') }}">
+      <form method="post" action="{{ route('login') }}">
         @csrf
      <div class="form-group  text-danger"> 
         <label >E-Mail</label>
