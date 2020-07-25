@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Paket extends Controller
 {
@@ -19,7 +20,8 @@ class Paket extends Controller
     
     public function index()
     {
-        return view('paket');
+        $users = DB::table('paket')-> get();
+        return view('paket',['paket' => $users]);
     }
 
     /**

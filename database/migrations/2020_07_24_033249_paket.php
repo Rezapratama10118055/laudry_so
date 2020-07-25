@@ -16,7 +16,7 @@ class Paket extends Migration
           Schema::create('Paket', function (Blueprint $table){
             $table->id();
             $table->string('Jenis');
-            $table->string('Harga/kg');
+            $table->integer('Harga');
             
     });
       }
