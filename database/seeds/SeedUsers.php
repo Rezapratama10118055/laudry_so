@@ -25,7 +25,5 @@ class SeedUsers extends Seeder
             'role' => 'kasir', 
             'password' => Hash::make('naonaisia')]
             ); 
-
-        
     }
 }

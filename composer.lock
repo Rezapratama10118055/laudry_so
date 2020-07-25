@@ -1108,7 +1108,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-19T22:47:30+00:00"
+=======
+            "time": "2020-06-27T12:50:08+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "league/flysystem",
@@ -1289,7 +1293,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-23T08:41:23+00:00"
+=======
+            "time": "2020-05-22T08:12:19+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "nesbot/carbon",
@@ -1601,7 +1609,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-20T17:29:33+00:00"
+=======
+            "time": "2020-06-07T10:40:07+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "psr/container",
@@ -2256,7 +2268,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-06T13:23:11+00:00"
+=======
+            "time": "2020-06-15T12:59:21+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/css-selector",
@@ -2458,7 +2474,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-23T08:36:24+00:00"
+=======
+            "time": "2020-05-30T20:35:19+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2544,7 +2564,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-06-18T18:24:02+00:00"
+=======
+            "time": "2020-05-20T17:43:50+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/event-dispatcher-contracts",
@@ -2758,7 +2782,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-23T10:04:31+00:00"
+=======
+            "time": "2020-06-15T06:52:54+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/http-kernel",
@@ -2871,7 +2899,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-24T04:22:56+00:00"
+=======
+            "time": "2020-06-15T13:51:38+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/mime",
@@ -2948,7 +2980,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-23T10:04:31+00:00"
+=======
+            "time": "2020-06-09T15:07:35+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -3024,7 +3060,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-14T12:35:20+00:00"
+=======
+            "time": "2020-06-06T08:46:27+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/polyfill-iconv",
@@ -3101,7 +3141,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-14T12:35:20+00:00"
+=======
+            "time": "2020-06-06T08:46:27+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
@@ -3179,7 +3223,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-14T12:35:20+00:00"
+=======
+            "time": "2020-06-06T08:46:27+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/polyfill-intl-idn",
@@ -3264,7 +3312,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-14T12:35:20+00:00"
+=======
+            "time": "2020-06-06T08:46:27+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
@@ -3345,7 +3397,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-14T12:35:20+00:00"
+=======
+            "time": "2020-06-14T14:40:37+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -3422,6 +3478,7 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -3500,6 +3557,9 @@
                 }
             ],
             "time": "2020-07-14T12:35:20+00:00"
+=======
+            "time": "2020-06-06T08:46:27+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/polyfill-php72",
@@ -3572,7 +3632,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-14T12:35:20+00:00"
+=======
+            "time": "2020-05-12T16:47:27+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/polyfill-php73",
@@ -3648,7 +3712,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-14T12:35:20+00:00"
+=======
+            "time": "2020-06-06T08:46:27+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/polyfill-php80",
@@ -3728,7 +3796,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-14T12:35:20+00:00"
+=======
+            "time": "2020-06-06T08:46:27+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/process",
@@ -3792,7 +3864,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-23T08:36:24+00:00"
+=======
+            "time": "2020-05-30T20:35:19+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/routing",
@@ -3884,7 +3960,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-06-18T18:24:02+00:00"
+=======
+            "time": "2020-06-10T11:49:58+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/service-contracts",
@@ -4045,7 +4125,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-08T08:27:49+00:00"
+=======
+            "time": "2020-06-11T12:16:36+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/translation",
@@ -4137,7 +4221,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-06-30T17:42:22+00:00"
+=======
+            "time": "2020-05-30T20:35:19+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "symfony/translation-contracts",
@@ -4302,7 +4390,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-06-24T13:36:18+00:00"
+=======
+            "time": "2020-05-30T20:35:19+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -4425,7 +4517,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-14T19:22:52+00:00"
+=======
+            "time": "2020-06-07T18:25:35+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "voku/portable-ascii",
@@ -4483,10 +4579,13 @@
                     "type": "github"
                 },
                 {
+<<<<<<< HEAD
                     "url": "https://opencollective.com/portable-ascii",
                     "type": "open_collective"
                 },
                 {
+=======
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
                     "url": "https://www.patreon.com/voku",
                     "type": "patreon"
                 },
@@ -4495,7 +4594,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-07-22T23:32:04+00:00"
+=======
+            "time": "2020-06-15T23:49:30+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         }
     ],
     "packages-dev": [
@@ -4625,11 +4728,19 @@
             ],
             "funding": [
                 {
+<<<<<<< HEAD
                     "url": "https://github.com/spatie",
                     "type": "github"
                 }
             ],
             "time": "2020-07-13T23:25:57+00:00"
+=======
+                    "url": "https://www.patreon.com/spatie",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-03-02T15:52:04+00:00"
+>>>>>>> 7cbaabf0aa3fd7156e64ee3956a1c08b22b513b7
         },
         {
             "name": "facade/ignition",

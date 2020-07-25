@@ -22,6 +22,9 @@ Auth::routes();
 route::get('/home','PagesController@home')->name('home');
 route::get('/ta','ManejemenUser@index');
 
+//tambah user
+Route::post("ta/store", 'ManejemenUser@store');
+
 //hapus user
 Route::get('/ta/hapus/{id}', 'ManejemenUser@destroy');	
 
