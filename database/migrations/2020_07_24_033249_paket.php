@@ -15,8 +15,9 @@ class Paket extends Migration
     {
           Schema::create('Paket', function (Blueprint $table){
             $table->id();
-            $table->string('Jenis');
-            $table->integer('Harga');
+            $table->string('jenis');
+            $table->integer('harga');
+            $table->string('satuan');
             
     });
       }

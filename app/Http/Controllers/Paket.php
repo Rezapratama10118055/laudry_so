@@ -43,6 +43,12 @@ class Paket extends Controller
     public function store(Request $request)
     {
         //
+        DB::table('paket')->insert([
+            'jenis' => $request->nama,
+            'harga' => $request->harga,
+            'satuan' => $request->satuan
+        ]);
+        return redirect('/pak');
     }
 
     /**
@@ -88,5 +94,8 @@ class Paket extends Controller
     public function destroy($id)
     {
         //
+        DB::table('paket')->where('id', $id)->delete();
+
+        return redirect('pak');
     }
 }
