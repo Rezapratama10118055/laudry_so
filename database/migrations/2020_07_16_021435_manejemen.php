@@ -13,7 +13,7 @@ class Manejemen extends Migration
      */
     public function up()
     {
-         Schema::create('Manejemen', function (Blueprint $table){
+         Schema::create('manejemen', function (Blueprint $table){
             $table->id();
             $table->string('Nama');
             $table->string('Jabatan');

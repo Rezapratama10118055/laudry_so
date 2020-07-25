@@ -18,6 +18,15 @@
      {
          $("#deleteForm").submit();
      }
+
+     // function createData(id)
+     // {
+     //     var id = id;
+     //     var url = "ta/hapus/id";
+     //     url = url.replace('id', id);
+     //     $("#createForm").attr('action', url);
+     //     $("#createForm").submit();
+     // }
   </script>
 
 <div style="margin-left: 300px; width: calc(100% - 300px);">
@@ -25,6 +34,7 @@
 
 <div class="col-md-12  p-5 pt-2" >
    <h3><i class="fas fa-user mr-2"></i>Manejemen User</h3><hr>
+   <a href="javascript:;" data-toggle="modal" data-target="#CreateModal" class="btn btn-primary mr-3"><i class= "fas fa-plus mr-2"></i></i>TAMBAH USER</a>
 <table class="table table-bordered">
   <thead class="thead-dark">
     <tr>
@@ -84,6 +94,38 @@
      </form>
    </div>
   </div>
+
+  <div class="modal fade" id="CreateModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Buat User Baru</h4>
+        </div>
+        <div class="modal-content">
+          <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Buat User Baru</h4>
+          </div>
+          <div class="modal-body">
+            <form action="/ta/store" method="post">
+
+                <div class="form-group">
+                  <label>Nama</label>
+                    <input type="text" name="nama" class="form-control">      
+                  </div>
+
+                 <div class="form-group">
+                  <label>Email</label>
+            <input type="text" name="email" class="form-control">      
+          </div>
+          <div class="form-group">
+                  <label>Password</label>
+            <input type="text" name="password" class="form-control">      
+          </div>
+          <div class="modal-footer">  
+        <button type="submit" class="btn btn-success" data-dissmis="modal">Update</button>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
 
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class ManejemenUser extends Controller
 {
@@ -48,7 +49,13 @@ class ManejemenUser extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::table('users')->insert([
+            'name' => $request->nama,
+            'email' => $request->email,
+            'role' => "kasir",
+            'password' => Hash::make($request->password)
+        ]);
+        return redirect('/ta');
     }
 
     /**
@@ -93,7 +100,7 @@ class ManejemenUser extends Controller
      */
     public function destroy($id)
     {
-        DB::table('manejemen')->where('id', $id)->delete();
+        DB::table('users')->where('id', $id)->delete();
 
         return redirect('ta');
     }
