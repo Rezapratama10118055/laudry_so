@@ -5,7 +5,7 @@
 
 @section('container')
 
-<div class="row">
+<div style="margin-left: 300px; width: calc(100% - 300px);">
 <div class="col-md-12 p-5 pt-2">
   <div class="panel panel-primary">
     <div class="panel-body">

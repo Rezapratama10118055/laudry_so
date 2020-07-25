@@ -7,6 +7,7 @@
 
 
  <!-- <div class="row p-3"> -->
+  <div style="margin-left: 300px; width: calc(100% - 300px);">
 <div class="col-md-10 p-5 pt-2">
    <h3><i class="fas fa-book mr-2"></i>Tipe pembayaran</h3><hr>
 
@@ -35,6 +36,7 @@
    
    </div>
  </div>
+</div>
 
 
 

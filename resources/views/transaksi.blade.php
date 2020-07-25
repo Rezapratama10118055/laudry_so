@@ -20,7 +20,7 @@
      }
   </script>
 
-<div class="row">
+<div style="margin-left: 300px; width: calc(100% - 300px);">
 <div class="col-md-12 p-5 pt-2">
    <h3><i class="fas fa-money-bill-wave mr-2"></i>Transaksi</h3><hr>
 <table class="table table-bordered">
