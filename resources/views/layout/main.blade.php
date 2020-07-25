@@ -45,8 +45,8 @@
   </div>
 </nav>
 
-<div class="row no-gutters mt-5">
-  <div class="col-md-2 bg-dark mt-2 pr-3 pt-4">
+<div class=" no-gutters mt-5">
+  <div class=" bg-dark mt-2 pr-3 pt-4" style="height: 100%;position: fixed; width: 300px;overflow-x: hidden;">
     <ul class="nav flex-column ml-3 mb-5">
   <li class="nav-item">
     <a class="nav-link active text-white" href="{{url('/home')}}"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a><hr class="bg-secondary">

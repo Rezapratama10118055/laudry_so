@@ -20,8 +20,10 @@
      }
   </script>
 
-<div class="row">
-<div class="col-md-12 p-5 pt-2">
+<div style="margin-left: 300px; width: calc(100% - 300px);">
+  
+
+<div class="col-md-12  p-5 pt-2" >
    <h3><i class="fas fa-user mr-2"></i>Manejemen User</h3><hr>
 <table class="table table-bordered">
   <thead class="thead-dark">
@@ -58,7 +60,6 @@
 
 </div>
 </div>
-
 <div id="DeleteModal" class="modal fade text-danger" role="dialog">
    <div class="modal-dialog ">
      <!-- Modal content-->
