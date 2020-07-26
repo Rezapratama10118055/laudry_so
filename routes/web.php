@@ -36,6 +36,8 @@ route::get('/trs','TransaksiUser@index')->name('transaksi');
 Route::post("trs/store", 'TransaksiUser@store');
 Route::get('/trs/hapus/{id}', 'TransaksiUser@destroy');
 Route::get('/trs/getDetail/{id}', 'TransaksiUser@detail');
+Route::post("/trs/update", 'TransaksiUser@update');
+
 
 
 route::get('/pem','Pembayaran@index');
@@ -43,6 +45,8 @@ route::get('/pem','Pembayaran@index');
 Route::get('/pak','Paket@index');
 Route::post("pak/store", 'Paket@store');
 Route::get('/pak/hapus/{id}', 'Paket@destroy');	
+Route::post("pak/update", 'Paket@update');
+
 
 
 //users-crud

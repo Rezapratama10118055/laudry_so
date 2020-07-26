@@ -56,6 +56,7 @@
   <li class="nav-item">
     <a class="nav-link active text-white" href="{{url('/home')}}"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a><hr class="bg-secondary">
   </li>
+  @if(Auth::user()->role == 'admin')  
   <li class="nav-item">
     <a class="nav-link text-white" href="{{url('/ta')}}"><i class="fas fa-user mr-2"></i>Menejemen User</a><hr class="bg-secondary">
   </li>
@@ -63,11 +64,12 @@
     <a class="nav-link text-white" href="{{url('/trs')}}"><i class="fas fa-money-bill-wave mr-2"></i>Transaksi</a><hr class="bg-secondary">
   </li>
    <li class="nav-item">
-    <a class="nav-link text-white" href="{{url('/pak')}}"><i class="fas fa-paperclip mr-2"></i>Paket Londry</a><hr class="bg-secondary">
+    <a class="nav-link text-white" href="{{url('/pak')}}"><i class="fas fa-paperclip mr-2"></i>Layanan </a><hr class="bg-secondary">
   </li>
    <li class="nav-item">
     <a class="nav-link text-white" href="{{url('/lap')}}"><i class="fas fa-book mr-2"></i>Laporan</a>
   </li>
+  @endif
 </ul>
 
 </div>

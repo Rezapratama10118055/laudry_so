@@ -80,9 +80,15 @@ class Paket extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+         DB::table("paket")->where('id', $request->id)->update([
+            'jenis' => $request->enama,
+            'harga' => $request->eharga,
+            'satuan' => $request->esatuan
+        ]);
+        return redirect('/pak');
     }
 
     /**

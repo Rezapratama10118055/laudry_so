@@ -19,8 +19,8 @@
       <th scope="col">Customer</th>
       <th scope="col">Alamat</th>
       <th scope="col">No Telpon</th>
-      <th scope="col">Status</th>
       <th scope="col">Total</th>
+      <th scope="col">Status</th>
       <th colspan="3" scope="col">AKSI</th>
     </tr>
   </thead>
@@ -34,11 +34,16 @@
       <td>{{ $User->Customer }}</td>
       <td>{{ $User->alamat }}</td>
       <td>{{ $User->tlp}}</td>
-      <td>{{ $User->status}}</td>
+      
       <td>Rp.{{ $User->total }}</td>
+      @if ($User->status == 'on progress')
+      <td class="bg-warning text-white">{{ $User->status}}</td>
+      @else
+       <td class="bg-success text-white">{{ $User->status}}</td>
+       @endif
     
-        <td><a href="javascript:;" data-toggle="modal" data-target="#DetailModal" onclick="detailModal({{$User->id}})" class="btn btn-primary">Detail</td>
-          <td><i class="fas fa-edit bg-warning p-2 text-white rounded "></i></td>
+        <td><a href="javascript:;" data-toggle="modal" data-target="#DetailModal" onclick="detailModal({{$User->id}},'det')" class="btn btn-primary">Detail</td>
+          <td><a href="javascript:;" data-toggle="modal" data-target="#DetailModal" onclick="detailModal({{$User->id}},'ed')" class="fas fa-edit bg-warning p-2 text-white rounded "></a></td>
          <td><a href="javascript:;" data-toggle="modal" onclick="deleteData({{$User->id}})" data-target="#DeleteModal" class="fas fa-trash bg-danger p-2 text-white rounded"></td>
 
     </tr>
@@ -177,17 +182,18 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Detail Data Transaksi</h5>
+        <h5 class="modal-title judul" id="exampleModalLabel">Detail Data Transaksi</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
           <div class="modal-body">
-           <!--  <form action="/trs/store" method="POST"> -->
-            
+            <form action="/trs/update" method="POST">
+              @csrf
+              <input type="text" hidden name="eid" id="eid">
                 <div class="form-group">
                   <label>Tanggal</label>
-                    <input type="text" name="dTanggal" id='dtgl'class="form-control" readonly>      
+                    <input type="date" name="dTanggal" id='dtgl'class="form-control" readonly>      
                   </div>
                   <div class="row">
                     <div class="form-group col-md-6">
@@ -206,7 +212,7 @@
                   </div>
                   <div class="form-group">
                     <label for="alamat">Alamat Costumer</label>
-                    <textarea class="form-control" id="dalamat" rows="3" readonly></textarea>
+                    <textarea class="form-control" name="dalamat" id="dalamat" rows="3" readonly></textarea>
                   </div>
                                  
                 
@@ -233,13 +239,18 @@
               <input type="number" min="0" name="dTotal" id="dtot" class="form-control" readonly>      
             </div>
 
-         
+         <div class="modal-footer footer-edit">  
+          <button type="submit" class="btn btn-success btn_submit" data-dissmis="modal">Simpan</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
           
-     <!--  </form> -->
+      </form>
       </div>
     </div>
   </div>
 </div>
+
+
 
 
 
@@ -251,7 +262,24 @@
   var harga, jenis;
   var total=0;
 
-  function detailModal(i) {
+  function detailModal(i,x) {
+    $('.judul').empty();
+    $('#eid').val(i);
+    if (x == 'det') {
+      $('#dtgl').prop('readonly', true);
+      $('#dnama').prop('readonly', true);
+      $('#dtlp').prop('readonly', true);
+      $('#dalamat').prop('readonly', true);
+      $('.judul').append("Detail Transaksi");
+      $('.footer-edit').hide();
+    }else{
+      $('#dtgl').prop('readonly', false);
+      $('#dnama').prop('readonly', false);
+      $('#dtlp').prop('readonly', false);
+      $('#dalamat').prop('readonly', false);
+      $('.judul').append("Edit Transaksi");
+      $('.footer-edit').show();
+    }
     $('.tabel-list-detail tbody').empty();
     $.ajax({
                   url:"/trs/getDetail/"+i,

@@ -16,21 +16,21 @@
       <th scope="col">Jenis</th>
       <th scope="col">Harga</th>
       <th scope="col">Satuan</th>
-      <th colspan="3" scope="col">AKSI</th>
+      <th colspan="2" scope="col">AKSI</th>
     </tr>
   </thead>
   <tbody>
 
-    @foreach($paket as $User)
+    @foreach($paket as $User => $val)
 
     <tr>
       <th scope="row">{{ $loop->iteration }}</th>
-      <td>{{ $User->jenis }}</td>
-      <td>{{ $User->harga}}</td>
-      <td>{{ $User->satuan}}</td>
-        <td><a href="" class="btn btn-primary">Detail</td>
-          <td><i class="fas fa-edit bg-warning p-2 text-white rounded "></i></td>
-         <td><a href="javascript:;" data-toggle="modal" onclick="deleteData({{$User->id}})" data-target="#DeleteModal" class="fas fa-trash bg-danger p-2 text-white rounded"></td>
+      <td>{{ $val->jenis }}</td>
+      <td>{{ $val->harga}}</td>
+      <td>{{ $val->satuan}}</td>
+        
+          <td><a href="#" class="fas fa-edit bg-warning p-2 text-white rounded edit-modal-click" data-id="{{$val->id}}"></a></td>
+         <td><a href="javascript:;" data-toggle="modal" onclick="deleteData({{$val->id}})" data-target="#DeleteModal" class="fas fa-trash bg-danger p-2 text-white rounded"></td>
 
     </tr>
     @endforeach
@@ -109,7 +109,65 @@
   </div>
 </div>
 
+<div class="modal fade" id="EditModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+          <div class="modal-body">
+            <form action="/pak/update" method="post">
+              @csrf
+              <div class="form-group">
+                    <input type="hidden" name="id" id="edit-id" class="form-control">      
+                  </div>
+
+                <div class="form-group">
+                  <label>Nama layanan</label>
+                    <input type="text" name="enama" id="edit-nama" class="form-control">      
+                  </div>
+
+                 <div class="form-group">
+                  <label>Harga</label>
+            <input type="number" name="eharga" id="edit-harga" class="form-control">      
+          </div>
+          <div class="form-group">
+                  <label>Satuan Laundry</label>
+            <select class="form-control form-control-sm" name="esatuan" id="edit-satuan">
+              <option selected disabled value="">-- Please Select --</option>
+              <option value="kg">Kg</option>
+              <option value="pcs">Satuan</option>
+            </select>  
+          </div>
+          <div class="modal-footer">  
+        <button type="submit" class="btn btn-success" data-dissmis="modal">Simpan</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+@endsection
+@section('js')
 <script type="text/javascript">
+  $(document).on("click", ".edit-modal-click", function () {
+    var id = $(this).attr('data-id');
+    var rowCells = $(this).closest("tr").children(); 
+    var nama = rowCells.eq(1).text();
+    var harga = rowCells.eq(2).text();
+    var sat = rowCells.eq(3).text();
+     $("#edit-id").val(id);
+     $("#edit-nama").val(nama);
+     $("#edit-harga").val(harga);   
+     $("#edit-satuan").val(sat);   
+     $('#EditModal').modal('show');
+    });
+
      function deleteData(id)
      {
          var id = id;
@@ -125,11 +183,4 @@
 
      
   </script>
-
-
-
-
-
-
-
 @endsection

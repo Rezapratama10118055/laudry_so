@@ -105,9 +105,16 @@ class TransaksiUser extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        DB::table("transaksi")->where('id', $request->eid)->update([
+            'TglTransaksi' => $request->dTanggal,
+            'Customer' => $request->dnama,
+            'tlp' => $request->dtlp,
+            'alamat' => $request->dalamat
+        ]);
+        return redirect('/trs');
     }
 
     /**
@@ -118,6 +125,7 @@ class TransaksiUser extends Controller
      */
     public function destroy($id)
     {
+        DB::table('list_transaksi')->where('id_transaksi', $id)->delete();
         DB::table('transaksi')->where('id', $id)->delete();
 
         return redirect('trs');

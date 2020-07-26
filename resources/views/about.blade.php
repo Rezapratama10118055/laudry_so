@@ -50,7 +50,7 @@
       <td>{{ $val->email }}</td>
     
         <td><a href="" class="btn btn-primary">Detail</a></td>
-        <td><a href="#" class="fas fa-edit bg-warning p-2 text-white rounded edit-modal-click" data-id="{{$val->id}}"></i></td>
+        <td><a href="#" class="fas fa-edit bg-warning p-2 text-white rounded edit-modal-click" data-id="{{$val->id}}"></a></td>
         <td><a href="javascript:;" data-toggle="modal" onclick="deleteData({{$val->id}})" data-target="#DeleteModal"  class="fas fa-trash bg-danger p-2 text-white rounded"></a></td>
 
     </tr>
@@ -171,7 +171,7 @@
   $(document).on("click", ".edit-modal-click", function () {
     var id = $(this).attr('data-id');
     var rowCells = $(this).closest("tr").children(); 
-    var nama = rowCells.eq( 1 ).text();
+    var nama = rowCells.eq(1).text();
     var email = rowCells.eq(3).text();
      $("#edit-id").val(id);
      $("#edit-nama").val(nama);
