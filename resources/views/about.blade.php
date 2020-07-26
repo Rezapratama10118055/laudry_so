@@ -5,6 +5,8 @@
 
 @section('container')
 
+
+
  <script type="text/javascript">
      function deleteData(id)
      {
@@ -19,14 +21,6 @@
          $("#deleteForm").submit();
      }
 
-     // function createData(id)
-     // {
-     //     var id = id;
-     //     var url = "ta/hapus/id";
-     //     url = url.replace('id', id);
-     //     $("#createForm").attr('action', url);
-     //     $("#createForm").submit();
-     // }
   </script>
 
 <div style="margin-left: 300px; width: calc(100% - 300px);">
@@ -49,15 +43,15 @@
 
 @foreach($user as $row => $val)
 
-    <tr>
+    <tr class="data-row">
       <th scope="row">{{ $row+1 }}</th>
       <td>{{ $val->name }}</td>
       <td>{{ $val->role }}</td>
       <td>{{ $val->email }}</td>
     
-        <td><a href="" class="btn btn-primary">Detail</td>
-          <td><i class="fas fa-edit bg-warning p-2 text-white rounded "></i></td>
-         <td><a href="javascript:;" data-toggle="modal" onclick="deleteData({{$val->id}})" data-target="#DeleteModal" class="fas fa-trash bg-danger p-2 text-white rounded"></td>
+        <td><a href="" class="btn btn-primary">Detail</a></td>
+        <td><a href="#" class="fas fa-edit bg-warning p-2 text-white rounded edit-modal-click" data-id="{{$val->id}}"></i></td>
+        <td><a href="javascript:;" data-toggle="modal" onclick="deleteData({{$val->id}})" data-target="#DeleteModal"  class="fas fa-trash bg-danger p-2 text-white rounded"></a></td>
 
     </tr>
 
@@ -82,7 +76,7 @@
              <div class="modal-body">
                  {{ csrf_field() }}
                  {{ method_field('GET') }}
-                 <p class="text-center">Are You Sure Want To Delete ?</p>
+                 <p class="text-center">Anda Yakin Ingin Menghapus User Ini? ?</p>
              </div>
              <div class="modal-footer">
                  <center>
@@ -95,20 +89,18 @@
    </div>
   </div>
 
-  <div class="modal fade" id="CreateModal" role="dialog">
+<div class="modal fade" id="CreateModal" role="dialog">
     <div class="modal-dialog">
+      <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Buat User Baru</h4>
-        </div>
-        <div class="modal-content">
-          <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Buat User Baru</h4>
-          </div>
+        <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
           <div class="modal-body">
             <form action="/ta/store" method="post">
-
+              @csrf
                 <div class="form-group">
                   <label>Nama</label>
                     <input type="text" name="nama" class="form-control">      
@@ -116,25 +108,77 @@
 
                  <div class="form-group">
                   <label>Email</label>
-            <input type="text" name="email" class="form-control">      
+            <input type="email" name="email" class="form-control">      
           </div>
           <div class="form-group">
                   <label>Password</label>
-            <input type="text" name="password" class="form-control">      
+                  <input type="password" name="password" class="form-control"> 
           </div>
           <div class="modal-footer">  
-        <button type="submit" class="btn btn-success" data-dissmis="modal">Update</button>
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-success" data-dissmis="modal">Tambah</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+      </form>
+      </div>
     </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="EditModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+          <div class="modal-body">
+            <form action="/ta/update" method="post">
+              @csrf
+              <div class="form-group">
+                    <input type="hidden" name="id" id="edit-id" class="form-control">      
+                  </div>
+
+                <div class="form-group">
+                  <label>Nama</label>
+                    <input type="text" name="nama" id="edit-nama" class="form-control">      
+                  </div>
+
+                 <div class="form-group">
+                  <label>Email</label>
+            <input type="email" name="email" id="edit-email" class="form-control">      
+          </div>
+          <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" name="password" class="form-control"> 
+          </div>
+          <div class="modal-footer">  
+        <button type="submit" class="btn btn-success" data-dissmis="modal">Tambah</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
 
-
-
-
-
-
+<script type="text/javascript">
+  $(document).on("click", ".edit-modal-click", function () {
+    var id = $(this).attr('data-id');
+    var rowCells = $(this).closest("tr").children(); 
+    var nama = rowCells.eq( 1 ).text();
+    var email = rowCells.eq(3).text();
+     $("#edit-id").val(id);
+     $("#edit-nama").val(nama);
+     $("#edit-email").val(email);   
+     $('#EditModal').modal('show');
+    });
+</script>
 
 
 

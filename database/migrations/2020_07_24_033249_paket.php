@@ -13,7 +13,7 @@ class Paket extends Migration
      */
     public function up()
     {
-          Schema::create('Paket', function (Blueprint $table){
+          Schema::create('paket', function (Blueprint $table){
             $table->id();
             $table->string('jenis');
             $table->integer('harga');
@@ -29,6 +29,6 @@ class Paket extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Paket');
+        Schema::dropIfExists('paket');
     }
 }

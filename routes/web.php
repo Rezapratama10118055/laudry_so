@@ -25,6 +25,9 @@ route::get('/ta','ManejemenUser@index');
 //tambah user
 Route::post("ta/store", 'ManejemenUser@store');
 
+//update user
+Route::post("ta/update", 'ManejemenUser@update');
+
 //hapus user
 Route::get('/ta/hapus/{id}', 'ManejemenUser@destroy');	
 
@@ -50,6 +53,11 @@ Route::get('/users/hapus/{id}', 'UsersController@hapus');
 //     return view('users');
 // });
 
+
+//test
+Route::get('/test', function() {
+	return view('test');
+});
 
 
 
