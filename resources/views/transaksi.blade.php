@@ -213,12 +213,18 @@
           
           
              <table class="table tabel-list-detail">
-               <tr class="bg-primary">
+               
+               <thead>
+                 <tr class="bg-primary">
                  <td>No</td>
                  <td>Layanan</td>
                  <td>Berat</td>
                  <td>Harga</td>
                </tr>
+               </thead>
+               <tbody>
+                 
+               </tbody>
              
              </table>
            
@@ -246,6 +252,7 @@
   var total=0;
 
   function detailModal(i) {
+    $('.tabel-list-detail tbody').empty();
     $.ajax({
                   url:"/trs/getDetail/"+i,
                   type:'GET',
@@ -254,7 +261,7 @@
                   success: function (data) {
                      var i=parseInt(data['jml']);
                      for (var b = 0 ; b < i; b++) {
-                       $('.tabel-list-detail').append(
+                       $('.tabel-list-detail tbody').append(
                         "<tr class='data"+b+"'>"+
                         "<td>"+(b+1)+"</td>"+
                         "<td>"+data["list"][b]['jenis']+"</td>"+
