@@ -66,9 +66,6 @@
     <a class="nav-link text-white" href="{{url('/pak')}}"><i class="fas fa-paperclip mr-2"></i>Paket Londry</a><hr class="bg-secondary">
   </li>
    <li class="nav-item">
-    <a class="nav-link text-white" href="{{url('/pem')}}"><i class="fas fa-users mr-2"></i>Tipe Pembayaran</a><hr class="bg-secondary">
-  </li>
-   <li class="nav-item">
     <a class="nav-link text-white" href="{{url('/lap')}}"><i class="fas fa-book mr-2"></i>Laporan</a>
   </li>
 </ul>

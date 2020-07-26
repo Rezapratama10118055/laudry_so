@@ -17,12 +17,12 @@
     
 
     <div class="container">
-      <h4 class="text-center text-dark">FORM LOGIN</h4>
+      <h4 class="text-center text-white">FORM LOGIN</h4>
       <hr>
 
       <form method="post" action="{{ route('login') }}">
         @csrf
-     <div class="form-group  text-dark"> 
+     <div class="form-group  text-white"> 
         <label >E-Mail</label>
         <div class="input-group">
           <div class="input-group-prepend">
@@ -38,7 +38,7 @@
         </div>
      </div>
 
-    <div class="form-group text-dark"> 
+    <div class="form-group text-white"> 
       <label>Password</label>
       <div class="input-group">
         <div class="input-group-prepend">
