@@ -17,9 +17,9 @@
       <th scope="col">No</th>
       <th scope="col">Tgl.Transaksi</th>
       <th scope="col">Customer</th>
-      <th scope="col">Paket</th>
-      <th scope="col">Pembayaran</th>
-      <th scope="col">Status Orderan</th>
+      <th scope="col">Alamat</th>
+      <th scope="col">No Telpon</th>
+      <th scope="col">Status</th>
       <th scope="col">Total</th>
       <th colspan="3" scope="col">AKSI</th>
     </tr>
@@ -32,12 +32,12 @@
       <th scope="row">{{ $loop->iteration }}</th>
       <td>{{ $User->TglTransaksi }}</td>
       <td>{{ $User->Customer }}</td>
-      <td>{{ $User->Paket }}</td>
-      <td>{{ $User->Pembayaran }}</td>
-      <td>{{ $User->StatusOrderan}}</td>
-      <td>Rp.{{ $User->Total }}</td>
+      <td>{{ $User->alamat }}</td>
+      <td>{{ $User->tlp}}</td>
+      <td>{{ $User->status}}</td>
+      <td>Rp.{{ $User->total }}</td>
     
-        <td><a href="" class="btn btn-primary">Detail</td>
+        <td><a href="javascript:;" data-toggle="modal" data-target="#DetailModal" onclick="detailModal({{$User->id}})" class="btn btn-primary">Detail</td>
           <td><i class="fas fa-edit bg-warning p-2 text-white rounded "></i></td>
          <td><a href="javascript:;" data-toggle="modal" onclick="deleteData({{$User->id}})" data-target="#DeleteModal" class="fas fa-trash bg-danger p-2 text-white rounded"></td>
 
@@ -93,8 +93,8 @@
         </button>
       </div>
           <div class="modal-body">
-            <form action="/trs/store" method="POST">
-              @csrf
+           <!--  <form action="/trs/store" method="POST"> -->
+            
                 <div class="form-group">
                   <label>Tanggal</label>
                     <input type="date" name="Tanggal" id='tgl' value="<?php echo date('Y-m-d'); ?>" class="form-control">      
@@ -102,7 +102,7 @@
                   <div class="row">
                     <div class="form-group col-md-6">
                       <label>Costumer</label>
-                      <input type="text"  name="Costumer" class="form-control">      
+                      <input type="text"  name="nama" id="nama" class="form-control">      
                     </div>
                     <div class="form-group col-md-6">
                       <label>No Telpon</label>
@@ -158,15 +158,78 @@
            
                <div class="form-group">
                   <label>Total</label>
-              <input type="number" min="0" name="Total" class="form-control">      
+              <input type="number" min="0" name="Total" id="tot" class="form-control">      
             </div>
 
          
           <div class="modal-footer">  
-        <button type="submit" class="btn btn-success" data-dissmis="modal">Simpan</button>
+        <button type="submit" class="btn btn-success btn_submit" data-dissmis="modal">Simpan</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
-      </form>
+     <!--  </form> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Detail modal -->
+<div class="modal fade" id="DetailModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Detail Data Transaksi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+          <div class="modal-body">
+           <!--  <form action="/trs/store" method="POST"> -->
+            
+                <div class="form-group">
+                  <label>Tanggal</label>
+                    <input type="text" name="dTanggal" id='dtgl'class="form-control" readonly>      
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label>Costumer</label>
+                      <input type="text"  name="dnama" id="dnama" class="form-control" readonly>      
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label>No Telpon</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">+62</span>
+                        </div>
+                        <input type="text" class="form-control" name="dtlp" id="dtlp" placeholder="Ex. 82312xxx" aria-label="tlp" aria-describedby="basic-addon1" readonly>
+                      </div>    
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="alamat">Alamat Costumer</label>
+                    <textarea class="form-control" id="dalamat" rows="3" readonly></textarea>
+                  </div>
+                                 
+                
+          
+          
+             <table class="table tabel-list-detail">
+               <tr class="bg-primary">
+                 <td>No</td>
+                 <td>Layanan</td>
+                 <td>Berat</td>
+                 <td>Harga</td>
+               </tr>
+             
+             </table>
+           
+               <div class="form-group">
+                  <label>Total</label>
+              <input type="number" min="0" name="dTotal" id="dtot" class="form-control" readonly>      
+            </div>
+
+         
+          
+     <!--  </form> -->
       </div>
     </div>
   </div>
@@ -180,6 +243,46 @@
   var data_sesehan = [];
   var a=1;
   var harga, jenis;
+  var total=0;
+
+  function detailModal(i) {
+    $.ajax({
+                  url:"/trs/getDetail/"+i,
+                  type:'GET',
+                  headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+                  data:{data:"Hai anjing"},
+                  success: function (data) {
+                     var i=parseInt(data['jml']);
+                     for (var b = 0 ; b < i; b++) {
+                       $('.tabel-list-detail').append(
+                        "<tr class='data"+b+"'>"+
+                        "<td>"+(b+1)+"</td>"+
+                        "<td>"+data["list"][b]['jenis']+"</td>"+
+                        "<td>"+data["list"][b]['qty']+" "+data["list"][b]['satuan']+"</td>"+
+                        "<td>"+data["list"][b]['total']+"</td>"+
+                        "</tr>"
+                        );
+                     }
+                     $('#dtgl').val(data['transaksi'][0]['TglTransaksi']);
+                     $('#dnama').val(data['transaksi'][0]['Customer']);
+                     $('#dtlp').val(data['transaksi'][0]['tlp']);
+                     $('#dalamat').val(data['transaksi'][0]['alamat']);
+                     $('#dtot').val(data['transaksi'][0]['total']);
+                     console.log(data['transaksi']);
+                    
+
+                      },
+                      error: function (data) {
+                           swalWithBootstrapButtons.fire(
+                  'Gagal!',
+                  'Failed to delete your file.',
+                  'error'
+                );
+                      }
+              });
+      
+  }
+
      function deleteData(id)
      {
          var id = id;
@@ -221,10 +324,39 @@
         data_sesehan[a+'jenis']=$('#jenis').find(':selected').attr("data-jenis");
         data_sesehan[a+'qty']=$('#qty').val();
         data_sesehan[a+'total']=parseInt($('#qty').val())*parseInt(harga);
+        total=total+data_sesehan[a+'total'];
+        $('#tot').val(total);
         console.log(data_sesehan);
         append_tabel(a);
         a=a+1;
       }
+
+    });
+
+     $( ".btn_submit" ).click(function() {
+      var data = Object.assign({}, data_sesehan);
+      
+        console.log(Object.assign({}, data_sesehan));
+        $.ajax({
+                  url:"/trs/store",
+                  type:'POST',
+                  headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+                  data:{data:data,total:total,tgl:$('#tgl').val(),nama:$("#nama").val(),tlp:$("#tlp").val(),alamat:$("#alamat").val()},
+                  success: function (data) {
+                     
+                     window.location.href = "{{ route('transaksi')}}";
+                    
+
+                      },
+                      error: function (data) {
+                           swalWithBootstrapButtons.fire(
+                  'Gagal!',
+                  'Failed to delete your file.',
+                  'error'
+                );
+                      }
+              });
+      
 
     });
 

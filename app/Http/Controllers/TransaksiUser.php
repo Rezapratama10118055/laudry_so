@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Transaksi;
 
 class TransaksiUser extends Controller
 {
@@ -43,15 +44,29 @@ class TransaksiUser extends Controller
      */
     public function store(Request $request)
     {
-         DB::table('transaksi')->insert([
-            'TglTransaksi' => $request->Tanggal,
-            'Customer' => $request->Costumer,
-            'Paket' => $request->paket,
-            'Pembayaran' => $request->Pembayaran,
-            'StatusOrderan' => $request->StatusOrderan,
-             'Total' => $request->Total
+        $transaksi=  new Transaksi;
+        $transaksi->TglTransaksi = $request->tgl;
+        $transaksi->Customer=$request->nama;
+        $transaksi->tlp=$request->tlp;
+        $transaksi->alamat=$request->alamat;
+        $transaksi->status="on progress";
+        $transaksi->Total=$request->total;
+        $transaksi->save();
+
+        
+        $j =count($request->data)/4;
+        
+        for ($i=1; $i <= $j; $i++) { 
+           DB::table('list_transaksi')->insert([
+            'id_transaksi' => $transaksi->id,
+            'id_paket' => $request->data[$i."id"],
+            'qty' => $request->data[$i."qty"],
+            'total' => $request->data[$i."total"]
+            
         ]);
-        return redirect('/trs');
+
+        }
+        //return redirect('/trs');
     }
 
     /**
@@ -63,6 +78,13 @@ class TransaksiUser extends Controller
     public function show($id)
     {
         //
+    }
+    public function detail($id)
+    {
+        $data['transaksi']=DB::table('transaksi')->where("id",$id)-> get();
+        $data['list']= DB::table('list_transaksi')->where("id_transaksi",$id)->join('paket','list_transaksi.id_paket','=','paket.id')-> get();
+        $data['jml']= DB::table('list_transaksi')->where("id_transaksi",$id)-> count();
+        return $data;
     }
 
     /**

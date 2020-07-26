@@ -29,9 +29,10 @@ Route::post("ta/store", 'ManejemenUser@store');
 Route::get('/ta/hapus/{id}', 'ManejemenUser@destroy');	
 
 //hapus transaksi
-route::get('/trs','TransaksiUser@index');
+route::get('/trs','TransaksiUser@index')->name('transaksi');
 Route::post("trs/store", 'TransaksiUser@store');
 Route::get('/trs/hapus/{id}', 'TransaksiUser@destroy');
+Route::get('/trs/getDetail/{id}', 'TransaksiUser@detail');
 
 
 route::get('/pem','Pembayaran@index');
