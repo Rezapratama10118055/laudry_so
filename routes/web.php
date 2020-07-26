@@ -47,6 +47,10 @@ Route::post("pak/store", 'Paket@store');
 Route::get('/pak/hapus/{id}', 'Paket@destroy');	
 Route::post("pak/update", 'Paket@update');
 
+//laporan
+Route::get('/lap','PagesController@laporan');
+
+
 
 
 //users-crud
