@@ -23,6 +23,7 @@
 <div style="margin-left: 300px; width: calc(100% - 300px);">
 <div class="col-md-12 p-5 pt-2">
    <h3><i class="fas fa-money-bill-wave mr-2"></i>Transaksi</h3><hr>
+     <a href="javascript:;" data-toggle="modal" data-target="#CreateModal" class="btn btn-primary mr-3"><i class= "fas fa-plus mr-2"></i></i>Tambah Data</a>
 <table class="table table-bordered">
   <thead class="thead-dark">
     <tr>
@@ -95,6 +96,67 @@
 
 
 
+<div class="modal fade" id="CreateModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Transaksi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+          <div class="modal-body">
+            <form action="/trs/store" method="POST">
+              @csrf
+                <div class="form-group">
+                  <label>Tanggal</label>
+                    <input type="date" name="Tanggal" class="form-control">      
+                  </div>
+
+                 <div class="form-group">
+                  <label>Costumer</label>
+            <input type="text" min="0" name="Costumer" class="form-control">      
+          </div>
+          <div class="form-group">
+                  <label>Paket</label>
+            <select class="form-control form-control-sm" name="paket">
+              <option selected disabled value="">-- Please Select --</option>
+              <option value="Paket hemat">Paket hemat</option>
+              <option value="Paket ekonomis">Paket ekonomis</option>
+              <option value="Paket super">Paket super</option>
+            </select>  
+             </div>
+           <div class="form-group">
+                  <label>Pembayaran</label>
+            <select class="form-control form-control-sm" name="Pembayaran">
+              <option selected disabled value="">-- Please Select --</option>
+              <option value="Lunas">Lunas</option>
+              <option value="Belum Lunas">Belum Lunas</option>
+            </select>  
+             </div>
+          <div class="form-group">
+                  <label>Status Orderan</label>
+            <select class="form-control form-control-sm" name="StatusOrderan">
+              <option selected disabled value="">-- Please Select --</option>
+              <option value="Baru">Baru</option>
+              <option value="Lama">Lama</option>
+            </select>  
+             </div>
+               <div class="form-group">
+                  <label>Total</label>
+            <input type="number" min="0" name="Total" class="form-control">      
+          </div>
+
+         
+          <div class="modal-footer">  
+        <button type="submit" class="btn btn-success" data-dissmis="modal">Simpan</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

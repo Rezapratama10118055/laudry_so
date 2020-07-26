@@ -42,7 +42,15 @@ class TransaksiUser extends Controller
      */
     public function store(Request $request)
     {
-        //
+         DB::table('transaksi')->insert([
+            'TglTransaksi' => $request->Tanggal,
+            'Customer' => $request->Costumer,
+            'Paket' => $request->paket,
+            'Pembayaran' => $request->Pembayaran,
+            'StatusOrderan' => $request->StatusOrderan,
+             'Total' => $request->Total
+        ]);
+        return redirect('/trs');
     }
 
     /**
