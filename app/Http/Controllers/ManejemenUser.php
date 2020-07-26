@@ -87,9 +87,15 @@ class ManejemenUser extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        DB::table("users")->where('id', $request->id)->update([
+            'name' => $request->nama,
+            'email' => $request->email,
+            'role' => "kasir",
+        ]);
+        return redirect('/ta');
     }
 
     /**
