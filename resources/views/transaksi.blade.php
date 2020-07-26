@@ -5,20 +5,7 @@
 
 @section('container')
 
- <script type="text/javascript">
-     function deleteData(id)
-     {
-         var id = id;
-         var url = "trs/hapus/id";
-         url = url.replace('id', id);
-         $("#deleteForm").attr('action', url);
-     }
 
-     function formSubmit()
-     {
-         $("#deleteForm").submit();
-     }
-  </script>
 
 <div style="margin-left: 300px; width: calc(100% - 300px);">
 <div class="col-md-12 p-5 pt-2">
@@ -97,7 +84,7 @@
 
 
 <div class="modal fade" id="CreateModal" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Tambah Data Transaksi</h5>
@@ -110,42 +97,69 @@
               @csrf
                 <div class="form-group">
                   <label>Tanggal</label>
-                    <input type="date" name="Tanggal" class="form-control">      
+                    <input type="date" name="Tanggal" id='tgl' value="<?php echo date('Y-m-d'); ?>" class="form-control">      
                   </div>
-
-                 <div class="form-group">
-                  <label>Costumer</label>
-            <input type="text" min="0" name="Costumer" class="form-control">      
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label>Costumer</label>
+                      <input type="text"  name="Costumer" class="form-control">      
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label>No Telpon</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">+62</span>
+                        </div>
+                        <input type="text" class="form-control" name="tlp" id="tlp" placeholder="Ex. 82312xxx" aria-label="tlp" aria-describedby="basic-addon1">
+                      </div>    
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="alamat">Alamat Costumer</label>
+                    <textarea class="form-control" id="alamat" rows="3"></textarea>
+                  </div>
+                                 
+                
+          <div class="row">
+            <div class="form-group col-md-5">
+                  <label>Jenis Cucian</label>
+            <select class="form-control form-control-md" name="jenis" id="jenis">
+              <option selected disabled value="">-- Please Select --</option>
+              @foreach ($paket as $row => $val)
+              <option value="{{$val->id}}" data-jenis="{{$val->jenis}}" data-harga="{{$val->harga}}" data-id="{{$val->satuan}}">{{$val->jenis}}</option>
+             
+              @endforeach
+            </select>  
+             </div>
+             <div class="form-group col-md-5">
+                  <label>Banyaknya Cucian</label>
+                  <div class="input-group">
+                    <input type="number" name="qty" id="qty" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <div class="input-group-append">
+                      <span class="input-group-text embel">/</span>
+                    </div>
+                  </div>     
+                </div>
+             <div class="form-group col-md-2">
+                 
+                  <button type="button" class="btn btn-primary btn-list">add</button>   
+                </div>
           </div>
-          <div class="form-group">
-                  <label>Paket</label>
-            <select class="form-control form-control-sm" name="paket">
-              <option selected disabled value="">-- Please Select --</option>
-              <option value="Paket hemat">Paket hemat</option>
-              <option value="Paket ekonomis">Paket ekonomis</option>
-              <option value="Paket super">Paket super</option>
-            </select>  
-             </div>
-           <div class="form-group">
-                  <label>Pembayaran</label>
-            <select class="form-control form-control-sm" name="Pembayaran">
-              <option selected disabled value="">-- Please Select --</option>
-              <option value="Lunas">Lunas</option>
-              <option value="Belum Lunas">Belum Lunas</option>
-            </select>  
-             </div>
-          <div class="form-group">
-                  <label>Status Orderan</label>
-            <select class="form-control form-control-sm" name="StatusOrderan">
-              <option selected disabled value="">-- Please Select --</option>
-              <option value="Baru">Baru</option>
-              <option value="Lama">Lama</option>
-            </select>  
-             </div>
+          
+             <table class="table tabel-list">
+               <tr class="bg-primary">
+                 <td>No</td>
+                 <td>Layanan</td>
+                 <td>Berat</td>
+                 <td>Harga</td>
+               </tr>
+             
+             </table>
+           
                <div class="form-group">
                   <label>Total</label>
-            <input type="number" min="0" name="Total" class="form-control">      
-          </div>
+              <input type="number" min="0" name="Total" class="form-control">      
+            </div>
 
          
           <div class="modal-footer">  
@@ -160,4 +174,59 @@
 
 
 
+@endsection
+@section('js')
+ <script type="text/javascript">
+  var data_sesehan = [];
+  var a=1;
+  var harga, jenis;
+     function deleteData(id)
+     {
+         var id = id;
+         var url = "trs/hapus/id";
+         url = url.replace('id', id);
+         $("#deleteForm").attr('action', url);
+     }
+
+     function formSubmit()
+     {
+         $("#deleteForm").submit();
+     }
+
+     $( "#jenis" ).change(function() {
+       jenis= $(this).find(':selected').attr("data-id");
+       harga= $(this).find(':selected').attr("data-harga");
+      $(".embel").empty();
+      $(".embel").append("/"+jenis);
+      
+
+    });
+
+     function append_tabel(i) {
+       $('.tabel-list').append(
+        "<tr class='data"+i+"'>"+
+        "<td>"+i+"</td>"+
+        "<td>"+data_sesehan[a+'jenis']+"</td>"+
+        "<td>"+data_sesehan[a+'qty']+"</td>"+
+        "<td>"+data_sesehan[a+'total']+"</td>"+
+        "</tr>"
+        );
+     }
+
+     $( ".btn-list" ).click(function() {
+      if ($('#jenis').val()== "" || $('#qty').val()=="") {
+        alert('isi dulu semu ajg');
+      }else{
+        data_sesehan[a+'id']=$('#jenis').val();
+        data_sesehan[a+'jenis']=$('#jenis').find(':selected').attr("data-jenis");
+        data_sesehan[a+'qty']=$('#qty').val();
+        data_sesehan[a+'total']=parseInt($('#qty').val())*parseInt(harga);
+        console.log(data_sesehan);
+        append_tabel(a);
+        a=a+1;
+      }
+
+    });
+
+  </script>
 @endsection

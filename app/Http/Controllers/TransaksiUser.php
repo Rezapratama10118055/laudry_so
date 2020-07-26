@@ -19,8 +19,9 @@ class TransaksiUser extends Controller
     }
     public function index()
     {
-        $users = DB::table('transaksi')-> get();
-        return view('transaksi',['transaksi' => $users]);
+        $data['transaksi'] = DB::table('transaksi')-> get();
+        $data['paket']= DB::table('paket')-> get();
+        return view('transaksi',$data);
 
     }
 
