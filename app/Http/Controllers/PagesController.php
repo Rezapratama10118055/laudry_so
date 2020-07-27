@@ -19,7 +19,13 @@ class PagesController extends Controller
 
     public function home()
     {
-        return view('welcome');
+        $data['user'] = DB::table('users')->where('role','!=','admin')-> count();
+        $data['progress'] = DB::table('transaksi')->where('status','=','on progress')-> count();
+        $data['success'] = DB::table('transaksi')->where('status','=','success')-> count();
+        $data['transaksi'] = DB::table('transaksi')-> get();
+        $data['paket']= DB::table('paket')-> get();
+
+        return view('welcome',$data);
     }
 
     public function laporan()
