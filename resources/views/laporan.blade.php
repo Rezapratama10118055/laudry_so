@@ -13,7 +13,7 @@
    <div class="row">
      <div class="form-group col-md-5">
                   <label>Tanggal</label>
-            <select class="form-control form-control-md" name="jenis" id="jenis">
+            <select class="form-control form-control-md" id="tgl">
               <option selected disabled value="">{{$now}}</option>
               @foreach($tgl as $row =>$val)
                 <option  value="{{$val->TglTransaksi}}">{{$val->TglTransaksi}}</option>
@@ -25,7 +25,7 @@
              </div>
    </div>
  <div id="printarea">
-   <table class="table table-bordered">
+   <table class="table table-bordered tabel-lap">
   <thead class="thead-dark">
     <tr>
       <th scope="col">No</th>
@@ -64,7 +64,7 @@
 
   </tbody>
 </table>
-<h3>Total Pendapatan : {{$sum}}</h3>
+<h3>Total Pendapatan :<span class="txtTot"> {{$sum}}</span></h3>
  </div>   
 
 </div>
@@ -89,12 +89,79 @@
         'padding:0.5em;' +
         'border-collapse: collapse;'+
         '}' +
-        '</style><body onload="window.print()"><h4>Laporan Transaksi Harian Laundry Bubble Wash</h4>'+divToPrint.innerHTML+'</body></html>');
+        '</style><body onload="window.print()"><h2>Laporan Transaksi Harian Laundry Bubble Wash</h2>'+divToPrint.innerHTML+'</body></html>');
 
   newWin.document.close();
 
   setTimeout(function(){newWin.close();},10);
 
 }
+function FR(angka, prefix){
+  var number_string = angka.replace(/[^,\d]/g, '').toString(),
+  split       = number_string.split(','),
+  sisa        = split[0].length % 3,
+  rupiah        = split[0].substr(0, sisa),
+  ribuan        = split[0].substr(sisa).match(/\d{3}/gi);
+ 
+  // tambahkan titik jika yang di input sudah menjadi angka ribuan
+  if(ribuan){
+    separator = sisa ? '.' : '';
+    rupiah += separator + ribuan.join('.');
+  }
+ 
+  rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+  return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+}
+
+$( document ).ready(function() {
+  var tod={{$sum}};
+    $('.txtTot').empty();
+    $('.txtTot').append(FR(tod.toString(),'Rp. '));
+});
+
+$( "#tgl" ).change(function() {
+  $.ajax({
+                  url:"/lap/getNew",
+                  type:'POST',
+                  headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+                  data:{tgl:$(this).val()},
+                  success: function (data) {
+                     console.log(data);
+                     $('.tabel-lap tbody').empty();
+                     var css;
+                     $('.txtTot').empty();
+                     $('.txtTot').append(FR(data['sum'],'Rp. '));
+                     for (var i = 0; i < data['x']; i++) {
+                      if (data["transaksi"][i]['status'] == "on progress") {
+                        css="bg-warning text-white";
+                      }else{
+                        css="bg-success text-white";
+                      }
+                       $('.tabel-lap tbody').append(
+                        "<tr class='data"+i+"'>"+
+                        "<td>"+(i+1)+"</td>"+
+                        "<td>"+data["transaksi"][i]['TglTransaksi']+"</td>"+
+                        "<td>"+data["transaksi"][i]['Customer']+"</td>"+
+                        "<td>"+data["transaksi"][i]['alamat']+"</td>"+
+                        "<td>"+data["transaksi"][i]['tlp']+"</td>"+
+                        "<td>Rp."+data["transaksi"][i]['total']+"</td>"+
+                        "<td class='"+css+"'>"+data["transaksi"][i]['status']+"</td>"+
+                        "</tr>"
+                        );
+                     }
+                     
+
+                    
+
+                      },
+                      error: function (data) {
+                           swalWithBootstrapButtons.fire(
+                  'Gagal!',
+                  'Failed to delete your file.',
+                  'error'
+                );
+                      }
+              });
+});
  </script>
 @endsection

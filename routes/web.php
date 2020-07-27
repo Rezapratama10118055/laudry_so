@@ -49,6 +49,7 @@ Route::post("pak/update", 'Paket@update');
 
 //laporan
 Route::get('/lap','PagesController@laporan');
+Route::post('/lap/getNew','PagesController@laporanNew');
 
 
 

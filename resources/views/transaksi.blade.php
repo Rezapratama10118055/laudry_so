@@ -102,7 +102,7 @@
             
                 <div class="form-group">
                   <label>Tanggal</label>
-                    <input type="date" name="Tanggal" id='tgl' value="<?php echo date('Y-m-d'); ?>" class="form-control">      
+                    <input type="date" name="Tanggal" id='tgl' value="<?php date_default_timezone_set('Asia/Jakarta'); echo date('Y-m-d'); ?>" class="form-control">      
                   </div>
                   <div class="row">
                     <div class="form-group col-md-6">
