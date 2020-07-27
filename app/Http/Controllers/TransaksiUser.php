@@ -130,4 +130,14 @@ class TransaksiUser extends Controller
 
         return redirect('trs');
     }
+
+    public function finish($id)
+    {
+        DB::table("transaksi")->where('id', $id)->update([
+            'status' => "success"
+            
+        ]);
+
+        return redirect('trs');
+    }
 }

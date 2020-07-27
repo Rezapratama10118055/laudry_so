@@ -7,7 +7,7 @@
 
 <div style="margin-left: 300px; width: calc(100% - 300px);">
 <div class="col-md-12 p-5 pt-2">
-   <h3><i class="fas fa-money-bill-wave mr-2"></i>Paket</h3><hr>
+   <h3><i class="fas fa-paperclip mr-2"></i>Layanan</h3><hr>
    <a href="javascript:;" data-toggle="modal" data-target="#CreateModal" class="btn btn-primary mr-3"><i class= "fas fa-plus mr-2"></i></i>Tambah Data</a>
 <table class="table table-bordered">
   <thead class="thead-dark">
@@ -74,7 +74,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Paket</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Layanan</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

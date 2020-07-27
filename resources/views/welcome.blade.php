@@ -72,9 +72,6 @@
   </div>  
    
 @else if(Auth::user()->role == 'kasir')   
-
-
-
 <div style="margin-left: 300px; width: calc(100% - 300px);">
 <div class="col-md-12 p-5 pt-2">
    <h3><i class="fas fa-money-bill-wave mr-2"></i>Transaksi</h3><hr>
@@ -89,7 +86,7 @@
       <th scope="col">No Telpon</th>
       <th scope="col">Total</th>
       <th scope="col">Status</th>
-      <th colspan="3" scope="col">AKSI</th>
+      <th colspan="4" scope="col">AKSI</th>
     </tr>
   </thead>
   <tbody>
@@ -113,6 +110,7 @@
         <td><a href="javascript:;" data-toggle="modal" data-target="#DetailModal" onclick="detailModal({{$User->id}},'det')" class="btn btn-primary">Detail</td>
           <td><a href="javascript:;" data-toggle="modal" data-target="#DetailModal" onclick="detailModal({{$User->id}},'ed')" class="fas fa-edit bg-warning p-2 text-white rounded "></a></td>
          <td><a href="javascript:;" data-toggle="modal" onclick="deleteData({{$User->id}})" data-target="#DeleteModal" class="fas fa-trash bg-danger p-2 text-white rounded"></td>
+          <td><a href="javascript:;" data-toggle="modal" onclick="finishTransaksi({{$User->id}})" data-target="#finishModal" class="fas fa-flag bg-info p-2 text-white rounded"></td>
 
     </tr>
     @endforeach
@@ -127,7 +125,29 @@
 
 
 
-
+<div class="modal fade" id="finishModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <form action="" id="finishform" method="get">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Selesaikan Transaksi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         {{ csrf_field() }}
+                 {{ method_field('GET') }}
+        <p>Jika ingin menggubah transaksi ke success maka pastikan pembayaran sudah di lakukan dan cucian sudah di ambil pelanggan</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" type="submit" onclick="formSubmit2()">oke, sudah</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
 
 <div id="DeleteModal" class="modal fade text-danger" role="dialog">
    <div class="modal-dialog ">
@@ -321,6 +341,9 @@
 
 
 
+
+
+
 @endif  
  
 @endsection
@@ -398,6 +421,19 @@
      function formSubmit()
      {
          $("#deleteForm").submit();
+     }
+
+     function finishTransaksi(id)
+     {
+         var id = id;
+         var url = "trs/finish/id";
+         url = url.replace('id', id);
+         $("#finishform").attr('action', url);
+     }
+
+     function formSubmit2()
+     {
+         $("#finishform").submit();
      }
 
      $( "#jenis" ).change(function() {

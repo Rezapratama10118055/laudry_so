@@ -35,6 +35,7 @@ Route::get('/ta/hapus/{id}', 'ManejemenUser@destroy');
 route::get('/trs','TransaksiUser@index')->name('transaksi');
 Route::post("trs/store", 'TransaksiUser@store');
 Route::get('/trs/hapus/{id}', 'TransaksiUser@destroy');
+Route::get('/trs/finish/{id}', 'TransaksiUser@finish');
 Route::get('/trs/getDetail/{id}', 'TransaksiUser@detail');
 Route::post("/trs/update", 'TransaksiUser@update');
 
