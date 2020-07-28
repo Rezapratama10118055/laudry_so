@@ -38,6 +38,8 @@ Route::get('/trs/hapus/{id}', 'TransaksiUser@destroy');
 Route::get('/trs/finish/{id}', 'TransaksiUser@finish');
 Route::get('/trs/getDetail/{id}', 'TransaksiUser@detail');
 Route::post("/trs/update", 'TransaksiUser@update');
+Route::get('/trs/auto', 'TransaksiUser@AutoComplete')->name('autocomplete');
+
 
 
 

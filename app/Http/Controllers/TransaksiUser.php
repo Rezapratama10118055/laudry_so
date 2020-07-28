@@ -140,4 +140,16 @@ class TransaksiUser extends Controller
 
         return redirect('trs');
     }
+
+    public function AutoComplete(Request $req)
+    {
+        # code...
+        $data= DB::table('paket')->select('jenis')->where('jenis','like',"%{$req->input('jenis')}%")-> get();
+        $hsl = array();
+        foreach ($data as $row)
+            {
+                $hsl[] = $row->jenis;
+            }
+        return response()->json($hsl);
+    }
 }

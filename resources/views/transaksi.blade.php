@@ -149,7 +149,7 @@
                                  
                 
           <div class="row">
-            <div class="form-group col-md-5">
+            <div class="form-group col-md-3">
                   <label>Jenis Cucian</label>
             <select class="form-control form-control-md" name="jenis" id="jenis">
               <option selected disabled value="">-- Please Select --</option>
@@ -159,7 +159,16 @@
               @endforeach
             </select>  
              </div>
-             <div class="form-group col-md-5">
+             <div class="form-group col-md-3">
+                  <label>Jenis Cucian</label>
+                  <div class="input-group">
+                    <input type="text" name="auto"  class="form-control typeahead" >
+                    <div class="input-group-append">
+                      <span class="input-group-text embel">/</span>
+                    </div>
+                  </div>     
+                </div>
+             <div class="form-group col-md-3">
                   <label>Banyaknya Cucian</label>
                   <div class="input-group">
                     <input type="number" name="qty" id="qty" class="form-control" aria-label="Amount (to the nearest dollar)">
@@ -168,7 +177,7 @@
                     </div>
                   </div>     
                 </div>
-             <div class="form-group col-md-2">
+             <div class="form-group col-md-3">
                  
                   <button type="button" class="btn btn-primary btn-list">add</button>   
                 </div>
@@ -430,6 +439,15 @@
       
 
     });
+
+     var path ="{{route('autocomplete')}}";
+     $('input.typeahead').typeahead({
+      source:function(query,process){
+        return $.get(path,{query:name},function(data){
+            return process(data);
+        });
+      }
+     });
 
   </script>
 @endsection
