@@ -72,6 +72,7 @@
   </div>  
    
 @else if(Auth::user()->role == 'kasir')   
+
 <div style="margin-left: 300px; width: calc(100% - 300px);">
 <div class="col-md-12 p-5 pt-2">
    <h3><i class="fas fa-money-bill-wave mr-2"></i>Transaksi</h3><hr>
@@ -224,6 +225,15 @@
               @endforeach
             </select>  
              </div>
+             <!-- <div class="form-group col-md-3">
+                  <label>Jenis Cucian</label>
+                  <div class="input-group">
+                    <input type="text" name="auto"  class="form-control typeahead" >
+                    <div class="input-group-append">
+                      <span class="input-group-text embel">/</span>
+                    </div>
+                  </div>     
+                </div> -->
              <div class="form-group col-md-5">
                   <label>Banyaknya Cucian</label>
                   <div class="input-group">
@@ -233,19 +243,26 @@
                     </div>
                   </div>     
                 </div>
-             <div class="form-group col-md-2">
+             <div class="form-group col-md-2" style="padding-top: 30px;">
                  
-                  <button type="button" class="btn btn-primary btn-list">add</button>   
+                  <button type="button" class="btn btn-primary btn-list" tooltip="add"><i class="fa fa-plus"></i></button> 
+                  <button type="button" class="btn btn-danger btn-reset-tbl" onclick="hapus_tabel()" tooltip="Reset Tabel"><i class="fa fa-trash"></i></button>  
                 </div>
           </div>
           
              <table class="table tabel-list">
-               <tr class="bg-primary">
+               
+               <thead>
+                 <tr class="bg-primary">
                  <td>No</td>
                  <td>Layanan</td>
                  <td>Berat</td>
                  <td>Harga</td>
                </tr>
+               </thead>
+               <tbody>
+                 
+               </tbody>
              
              </table>
            
@@ -337,6 +354,9 @@
     </div>
   </div>
 </div>
+
+
+
 
 
 
@@ -446,7 +466,7 @@
     });
 
      function append_tabel(i) {
-       $('.tabel-list').append(
+       $('.tabel-list tbody').append(
         "<tr class='data"+i+"'>"+
         "<td>"+i+"</td>"+
         "<td>"+data_sesehan[a+'jenis']+"</td>"+
@@ -466,8 +486,9 @@
         data_sesehan[a+'total']=parseInt($('#qty').val())*parseInt(harga);
         total=total+data_sesehan[a+'total'];
         $('#tot').val(total);
-        console.log(data_sesehan);
+        
         append_tabel(a);
+        console.log(data_sesehan);
         a=a+1;
       }
 
@@ -499,6 +520,22 @@
       
 
     });
+
+     var path ="{{route('autocomplete')}}";
+     $('input.typeahead').typeahead({
+      source:function(query,process){
+        return $.get(path,{query:name},function(data){
+            return process(data);
+        });
+      }
+     });
+
+     function hapus_tabel() {
+       $('.tabel-list tbody').empty();
+       data_sesehan = [];
+       a=1;
+       console.log(data_sesehan);
+     }
 
   </script>
 @endsection

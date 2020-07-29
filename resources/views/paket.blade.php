@@ -83,7 +83,7 @@
             <form action="/pak/store" method="post">
               @csrf
                 <div class="form-group">
-                  <label>Nama Paket</label>
+                  <label>Nama Layanan</label>
                     <input type="text" name="nama" class="form-control">      
                   </div>
 

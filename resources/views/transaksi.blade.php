@@ -149,7 +149,7 @@
                                  
                 
           <div class="row">
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-5">
                   <label>Jenis Cucian</label>
             <select class="form-control form-control-md" name="jenis" id="jenis">
               <option selected disabled value="">-- Please Select --</option>
@@ -159,7 +159,7 @@
               @endforeach
             </select>  
              </div>
-             <div class="form-group col-md-3">
+             <!-- <div class="form-group col-md-3">
                   <label>Jenis Cucian</label>
                   <div class="input-group">
                     <input type="text" name="auto"  class="form-control typeahead" >
@@ -167,8 +167,8 @@
                       <span class="input-group-text embel">/</span>
                     </div>
                   </div>     
-                </div>
-             <div class="form-group col-md-3">
+                </div> -->
+             <div class="form-group col-md-5">
                   <label>Banyaknya Cucian</label>
                   <div class="input-group">
                     <input type="number" name="qty" id="qty" class="form-control" aria-label="Amount (to the nearest dollar)">
@@ -177,19 +177,26 @@
                     </div>
                   </div>     
                 </div>
-             <div class="form-group col-md-3">
+             <div class="form-group col-md-2" style="padding-top: 30px;">
                  
-                  <button type="button" class="btn btn-primary btn-list">add</button>   
+                  <button type="button" class="btn btn-primary btn-list" tooltip="add"><i class="fa fa-plus"></i></button> 
+                  <button type="button" class="btn btn-danger btn-reset-tbl" onclick="hapus_tabel()" tooltip="Reset Tabel"><i class="fa fa-trash"></i></button>  
                 </div>
           </div>
           
              <table class="table tabel-list">
-               <tr class="bg-primary">
+               
+               <thead>
+                 <tr class="bg-primary">
                  <td>No</td>
                  <td>Layanan</td>
                  <td>Berat</td>
                  <td>Harga</td>
                </tr>
+               </thead>
+               <tbody>
+                 
+               </tbody>
              
              </table>
            
@@ -386,7 +393,7 @@
     });
 
      function append_tabel(i) {
-       $('.tabel-list').append(
+       $('.tabel-list tbody').append(
         "<tr class='data"+i+"'>"+
         "<td>"+i+"</td>"+
         "<td>"+data_sesehan[a+'jenis']+"</td>"+
@@ -406,8 +413,9 @@
         data_sesehan[a+'total']=parseInt($('#qty').val())*parseInt(harga);
         total=total+data_sesehan[a+'total'];
         $('#tot').val(total);
-        console.log(data_sesehan);
+        
         append_tabel(a);
+        console.log(data_sesehan);
         a=a+1;
       }
 
@@ -448,6 +456,13 @@
         });
       }
      });
+
+     function hapus_tabel() {
+       $('.tabel-list tbody').empty();
+       data_sesehan = [];
+       a=1;
+       console.log(data_sesehan);
+     }
 
   </script>
 @endsection
